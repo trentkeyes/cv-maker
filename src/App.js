@@ -7,47 +7,111 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      general: {
+      tempFormData: {
         name: '',
+        email: '',
+        phone: '',
+        school: '',
+        degree: '',
+        schoolDates: '',
+        company: '',
+        position: '',
+        jobTasks: '',
+        jobDates: '',
       },
-      work: {
-        job: '',
+      formData: {
+        name: '',
+        email: '',
+        phone: '',
+        school: '',
+        degree: '',
+        schoolDates: '',
+        company: '',
+        position: '',
+        jobTasks: '',
+        jobDates: '',
       },
     };
   }
 
   handleChange = (e) => {
-    this.setState({
-      general: {
-        name: e.target.value,
+    this.setState((prevData) => ({
+      tempFormData: {
+        ...prevData.tempFormData,
+        [e.target.name]: e.target.value,
       },
-    });
+    }));
   };
 
-  onSubmitTask = (e) => {
+  onSubmit = (e) => {
     e.preventDefault();
+    const {
+      name,
+      email,
+      phone,
+      school,
+      degree,
+      schoolDates,
+      company,
+      position,
+      jobTasks,
+      jobDates,
+    } = this.state.tempFormData;
+
     this.setState({
-      general: {
-        name: '',
+      formData: {
+        name: name,
+        email: email,
+        phone: phone,
+        school: school,
+        degree: degree,
+        schoolDates: schoolDates,
+        company: company,
+        position: position,
+        jobTasks: jobTasks,
+        jobDates: jobDates,
       },
     });
   };
 
   render() {
-    const { general } = this.state;
-
+    const {
+      name,
+      email,
+      phone,
+      school,
+      degree,
+      schoolDates,
+      company,
+      position,
+      jobTasks,
+      jobDates,
+    } = this.state.tempFormData;
+    console.log(this.state);
     return (
       <div className="App">
         <General
-          name={general.name}
+          name={name}
+          email={email}
+          phone={phone}
           handleChange={this.handleChange}
           onSubmit={this.onSubmit}
         />
-        <Education />
-        <Work />
+        <Education
+          school={school}
+          degree={degree}
+          schoolDates={schoolDates}
+          handleChange={this.handleChange}
+        />
+        <Work
+          company={company}
+          position={position}
+          jobTasks={jobTasks}
+          jobDates={jobDates}
+          handleChange={this.handleChange}
+        />
       </div>
     );
   }
 }
-
 export default App;
