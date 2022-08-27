@@ -5,10 +5,7 @@ export default class General extends Component {
   render() {
     const { name, email, phone, handleChange } = this.props;
     return (
-      <div className="general">
-        <h1>General Info Hello, {name}</h1>
-        <h1>Your email is {email}</h1>
-        <h1>Your number is {phone}</h1>
+      <div className="inputSection">
         <form onSubmit={this.props.onSubmit}>
           <label htmlFor="nameInput">Enter your name</label>
           <input

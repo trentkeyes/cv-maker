@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import General from './components/General';
 import Education from './components/Education';
 import Work from './components/Work';
+import Preview from './components/Preview';
 
 class App extends Component {
   constructor(props) {
@@ -20,11 +21,11 @@ class App extends Component {
         jobDates: '',
       },
       formData: {
-        name: '',
-        email: '',
-        phone: '',
-        school: '',
-        degree: '',
+        name: 'Bobby Hill',
+        email: 'bestPropComic@gmail.com',
+        phone: '806-994-9866',
+        school: 'Arlen Community College',
+        degree: 'Clowning',
         schoolDates: '',
         company: '',
         position: '',
@@ -86,29 +87,58 @@ class App extends Component {
       position,
       jobTasks,
       jobDates,
+    } = this.state.formData;
+    const {
+      name: tempName,
+      email: tempEmail,
+      phone: tempPhone,
+      school: tempSchool,
+      degree: tempDegree,
+      schoolDates: tempSchoolDates,
+      company: tempCompany,
+      position: tempPosition,
+      jobTasks: tempJobTasks,
+      jobDates: tempJobDates,
     } = this.state.tempFormData;
-    console.log(this.state);
     return (
-      <div className="App">
-        <General
-          name={name}
-          email={email}
-          phone={phone}
-          handleChange={this.handleChange}
-          onSubmit={this.onSubmit}
-        />
-        <Education
-          school={school}
-          degree={degree}
-          schoolDates={schoolDates}
-          handleChange={this.handleChange}
-        />
-        <Work
-          company={company}
-          position={position}
-          jobTasks={jobTasks}
-          jobDates={jobDates}
-          handleChange={this.handleChange}
+      <div className="main">
+        <div className="formContainer">
+          <General
+            name={tempName}
+            email={tempEmail}
+            phone={tempPhone}
+            handleChange={this.handleChange}
+            onSubmit={this.onSubmit}
+          />
+          <Education
+            school={tempSchool}
+            degree={tempDegree}
+            schoolDates={tempSchoolDates}
+            handleChange={this.handleChange}
+            onSubmit={this.onSubmit}
+          />
+          <Work
+            company={tempCompany}
+            position={tempPosition}
+            jobTasks={tempJobTasks}
+            jobDates={tempJobDates}
+            handleChange={this.handleChange}
+            onSubmit={this.onSubmit}
+          />
+        </div>
+        <Preview
+          {...{
+            name,
+            email,
+            phone,
+            school,
+            degree,
+            schoolDates,
+            company,
+            position,
+            jobTasks,
+            jobDates,
+          }}
         />
       </div>
     );
