@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 export default class Preview extends Component {
-  // getting the temp props
   render() {
     const {
       name,
@@ -16,18 +15,52 @@ export default class Preview extends Component {
       schoolDates,
     } = this.props;
     return (
-      <div className="cvPreview">
-        <h1>Trent Keyes</h1>
-        <p>Your name is {name}</p>
-        <p>Your email is {email}</p>
-        <p>Your number is {phone}</p>
-        <p>University: {school}</p>
-        <p>Degree: {degree}</p>
-        <p>Education dates: {schoolDates}</p>
-        <p>Company: {company}</p>
-        <p>Job position: {position}</p>
+      <div className="preview">
+        <header className="preview--header">
+          <div className="preview--header--name-title">
+            <h1>{name}</h1>
+            <h3 className="preview--title">Job Title</h3>
+          </div>
+
+          <div className="preview--contact">
+            <p>
+              <span className="material-symbols-outlined">call</span>
+              {phone}
+            </p>
+            <p>
+              <span className="material-symbols-outlined">mail</span>
+              {email}
+            </p>
+            <p>
+              {' '}
+              <span className="material-symbols-outlined">location_on</span>
+              Arlen, TX
+            </p>
+          </div>
+        </header>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea vel
+          dolores ratione doloribus alias et corporis optio, nulla deleniti
+          fugit quis molestiae voluptatum magnam veniam quaerat, amet ipsa
+          autem.
+        </p>
+        <h4>Work Experience</h4>
+        <div className="preview--work--job-info">
+          <span>Job position: {position}</span>
+          <div className="preview--work--details">
+            <span>Company: {company} |</span>
+          <span>Job dates {jobDates}</span>
+          </div>
+          
+        </div>
         <p>Job tasks {jobTasks}</p>
-        <p>Job dates {jobDates}</p>
+        <p>Job description</p>
+        <h4>Education</h4>
+        <div className="preview--education--info">
+          <span>Degree: {degree}</span>
+          <span>University: {school} |</span>
+          <span>Education dates: {schoolDates}</span>
+        </div>
       </div>
     );
   }

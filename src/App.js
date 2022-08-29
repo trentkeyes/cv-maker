@@ -22,7 +22,7 @@ class App extends Component {
       },
       formData: {
         name: 'Bobby Hill',
-        email: 'bestPropComic@gmail.com',
+        email: 'BestPropComic@gmail.com',
         phone: '806-994-9866',
         school: 'Arlen Community College',
         degree: 'Clowning',
