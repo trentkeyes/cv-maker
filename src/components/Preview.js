@@ -6,13 +6,17 @@ export default class Preview extends Component {
       name,
       email,
       phone,
+      location,
+      description,
       company,
-      jobDates,
+      jobStartDate,
+      jobEndDate,
       jobTasks,
       position,
       school,
       degree,
-      schoolDates,
+      schoolStartDate,
+      schoolEndDate,
     } = this.props;
     return (
       <div className="preview">
@@ -34,32 +38,33 @@ export default class Preview extends Component {
             <p>
               {' '}
               <span className="material-symbols-outlined">location_on</span>
-              Arlen, TX
+              {location}
             </p>
           </div>
         </header>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea vel
-          dolores ratione doloribus alias et corporis optio, nulla deleniti
-          fugit quis molestiae voluptatum magnam veniam quaerat, amet ipsa
-          autem.
-        </p>
+        <p>{description}</p>
         <h4>Work Experience</h4>
         <div className="preview--work--job-info">
-          <span>Job position: {position}</span>
+          <span className="preview--work--job-title">{position}</span>
           <div className="preview--work--details">
-            <span>Company: {company} |</span>
-          <span>Job dates {jobDates}</span>
+            <span className="preview--work--company">{company} |</span>
+            <span className="preview--work--dates">
+              {' '}
+              {jobStartDate} - {jobEndDate}
+            </span>
           </div>
-          
         </div>
-        <p>Job tasks {jobTasks}</p>
-        <p>Job description</p>
+        <p>{jobTasks}</p>
         <h4>Education</h4>
         <div className="preview--education--info">
-          <span>Degree: {degree}</span>
-          <span>University: {school} |</span>
-          <span>Education dates: {schoolDates}</span>
+          <span className="preview--education--degree">{degree}</span>
+          <div className="preview--education--details">
+            <span className="preview--education--school">{school} |</span>
+            <span className="preview--education--dates">
+              {' '}
+              {schoolStartDate} - {schoolEndDate}
+            </span>
+          </div>
         </div>
       </div>
     );

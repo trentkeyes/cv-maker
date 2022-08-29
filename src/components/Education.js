@@ -6,6 +6,7 @@ export default class Education extends Component {
     return (
       <div className="inputSection">
         <form onSubmit={onSubmit}>
+          <h3>Education</h3>
           <label htmlFor="schoolInput">Enter your education</label>
           <input
             name="school"

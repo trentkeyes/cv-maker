@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 
 export default class Work extends Component {
   render() {
-    const { handleChange, onSubmit, company, position, jobTasks, jobDates } =
-      this.props;
+    const {
+      handleChange,
+      onSubmit,
+      company,
+      position,
+      jobTasks,
+      jobStartDate,
+      jobEndDate,
+    } = this.props;
     return (
       <div className="inputSection">
         <form onSubmit={onSubmit}>
+          <h3>Work Experience</h3>
           <label htmlFor="companyInput">Enter your company</label>
           <input
             name="company"
@@ -26,18 +34,28 @@ export default class Work extends Component {
           <label htmlFor="jobTasksInput">Job Tasks</label>
           <input
             name="jobTasks"
-            type="jobTasks"
+            type="text"
             value={jobTasks}
             onChange={handleChange}
             id="jobTasksInput"
           />
-          <label htmlFor="jobDatesInput">Job Dates</label>
+          <label htmlFor="jobStartDateInput"></label>
           <input
-            name="jobDates"
-            type="jobDates"
-            value={jobDates}
+            name="jobStartDate"
+            type="text"
+            value={jobStartDate}
             onChange={handleChange}
-            id="jobDatesInput"
+            id="jobStartDateInput"
+            placeholder="Start Date"
+          />
+          <label htmlFor="jobEndDateInput"></label>
+          <input
+            name="jobEndDate"
+            type="text"
+            value={jobEndDate}
+            onChange={handleChange}
+            id="jobEndDateInput"
+            placeholder="End Date"
           />
           <button type="submit">Save</button>
         </form>
