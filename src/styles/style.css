@@ -34,18 +34,23 @@ body {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+form>h3 {
+    margin: .4rem 0;
+}
+
 input,
 textarea {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     width: 518px;
-    text-indent: 5px;
     border: 1px solid black;
     border-radius: 2px;
     display: block;
+    font-size: .8rem;
 }
 
 input {
     height: 30px;
+    text-indent: 5px;
 }
 
 input::placeholder {
@@ -53,10 +58,10 @@ input::placeholder {
 }
 
 textarea {
-    height: 60px;
+    height: 70px;
     font-family: inherit;
-    font-size: inherit;
     resize: none;
+    padding: 5px;
 }
 
 .preview {
@@ -108,8 +113,8 @@ textarea {
     color: var(--blue);
     font-weight: 600;
     letter-spacing: .05rem;
-    margin-top: 1rem;
-    margin-bottom: .5rem;
+    margin-top: .6rem;
+    margin-bottom: .4rem;
 }
 
 .preview>p,

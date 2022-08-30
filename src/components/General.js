@@ -9,13 +9,14 @@ export default class General extends Component {
       <div className="inputSection">
         <form onSubmit={this.props.onSubmit}>
           <h3>Personal Information</h3>
-          <label htmlFor="nameInput">Enter your name</label>
+          <label htmlFor="nameInput"></label>
           <input
             name="name"
             type="text"
             value={name}
             onChange={handleChange}
             id="nameInput"
+            placeholder="Name"
           />
           <input
             name="title"

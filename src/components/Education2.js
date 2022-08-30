@@ -10,13 +10,14 @@ export default class Education extends Component {
       schoolStartDate,
       schoolEndDate,
     } = this.props;
+    console.log(this.props);
     return (
       <div className="inputSection">
         <form onSubmit={onSubmit}>
           <h3>Education</h3>
           <label htmlFor="schoolInput"></label>
           <input
-            name="school"
+            name="school2"
             type="text"
             value={school}
             onChange={handleChange}
@@ -25,7 +26,7 @@ export default class Education extends Component {
           />
           <label htmlFor="degreeInput"></label>
           <input
-            name="degree"
+            name="degree2"
             type="text"
             value={degree}
             onChange={handleChange}
@@ -34,7 +35,7 @@ export default class Education extends Component {
           />
           <label htmlFor="schoolStartDateInput"></label>
           <input
-            name="schoolStartDate"
+            name="schoolStartDate2"
             type="text"
             value={schoolStartDate}
             onChange={handleChange}
@@ -42,7 +43,7 @@ export default class Education extends Component {
           />
           <label htmlFor="schoolEndDateInput"></label>
           <input
-            name="schoolEndDate"
+            name="schoolEndDate2"
             type="text"
             value={schoolEndDate}
             onChange={handleChange}

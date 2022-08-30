@@ -17,7 +17,7 @@ export default class Work extends Component {
           <h3>Work Experience</h3>
           <label htmlFor="companyInput"></label>
           <input
-            name="company"
+            name="company2"
             type="text"
             value={company}
             onChange={handleChange}
@@ -26,7 +26,7 @@ export default class Work extends Component {
           />
           <label htmlFor="positionInput"></label>
           <input
-            name="position"
+            name="position2"
             type="text"
             value={position}
             onChange={handleChange}
@@ -35,7 +35,7 @@ export default class Work extends Component {
           />
           <label htmlFor="jobStartDateInput"></label>
           <input
-            name="jobStartDate"
+            name="jobStartDate2"
             type="text"
             value={jobStartDate}
             onChange={handleChange}
@@ -44,7 +44,7 @@ export default class Work extends Component {
           />
           <label htmlFor="jobEndDateInput"></label>
           <input
-            name="jobEndDate"
+            name="jobEndDate2"
             type="text"
             value={jobEndDate}
             onChange={handleChange}
@@ -53,7 +53,7 @@ export default class Work extends Component {
           />
           <label htmlFor="jobTasksInput"></label>
           <input
-            name="jobTasks"
+            name="jobTasks2"
             type="text"
             value={jobTasks}
             onChange={handleChange}
