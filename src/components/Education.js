@@ -9,6 +9,7 @@ export default class Education extends Component {
       degree,
       schoolStartDate,
       schoolEndDate,
+      edit,
     } = this.props;
     return (
       <div className="inputSection">
@@ -49,6 +50,9 @@ export default class Education extends Component {
             id="schoolEndDateInput"
           />
           <button type="submit">Save</button>
+          <button type="button" id="edit" onClick={edit}>
+            Edit
+          </button>
         </form>
       </div>
     );

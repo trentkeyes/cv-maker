@@ -3,10 +3,6 @@ import General from './components/General';
 import Education from './components/Education';
 import Work from './components/Work';
 import Preview from './components/Preview';
-import Education2 from './components/Education2';
-import Education3 from './components/Education3';
-import Work2 from './components/Work2';
-import Work3 from './components/Work3';
 
 class App extends Component {
   constructor(props) {
@@ -86,7 +82,14 @@ class App extends Component {
         ...prevData.formData,
       },
     }));
-    console.log(this.state);
+  };
+
+  edit = () => {
+    this.setState((prevData) => ({
+      formData: {
+        ...prevData.savedFormData,
+      },
+    }));
   };
 
   render() {
@@ -101,29 +104,11 @@ class App extends Component {
       degree,
       schoolStartDate,
       schoolEndDate,
-      school2,
-      degree2,
-      schoolStartDate2,
-      schoolEndDate2,
-      school3,
-      degree3,
-      schoolStartDate3,
-      schoolEndDate3,
       company,
       position,
       jobTasks,
       jobStartDate,
       jobEndDate,
-      company2,
-      position2,
-      jobTasks2,
-      jobStartDate2,
-      jobEndDate2,
-      company3,
-      position3,
-      jobTasks3,
-      jobStartDate3,
-      jobEndDate3,
     } = this.state.formData;
 
     return (
@@ -148,24 +133,7 @@ class App extends Component {
             handleChange={this.handleChange}
             onSubmit={this.onSubmit}
           />
-          <Work2
-            company={company2}
-            position={position2}
-            jobTasks={jobTasks2}
-            jobStartDate={jobStartDate2}
-            jobEndDate={jobEndDate2}
-            handleChange={this.handleChange}
-            onSubmit={this.onSubmit}
-          />
-          <Work3
-            company={company3}
-            position={position3}
-            jobTasks={jobTasks3}
-            jobStartDate={jobStartDate3}
-            jobEndDate={jobEndDate3}
-            handleChange={this.handleChange}
-            onSubmit={this.onSubmit}
-          />
+
           <Education
             school={school}
             degree={degree}
@@ -173,22 +141,7 @@ class App extends Component {
             schoolEndDate={schoolEndDate}
             handleChange={this.handleChange}
             onSubmit={this.onSubmit}
-          />
-          <Education2
-            school={school2}
-            degree={degree2}
-            schoolStartDate={schoolStartDate2}
-            schoolEndDate={schoolEndDate2}
-            handleChange={this.handleChange}
-            onSubmit={this.onSubmit}
-          />
-          <Education3
-            school={school3}
-            degree={degree3}
-            schoolStartDate={schoolStartDate3}
-            schoolEndDate={schoolEndDate3}
-            handleChange={this.handleChange}
-            onSubmit={this.onSubmit}
+            edit={this.edit}
           />
         </div>
         <Preview
@@ -207,7 +160,6 @@ class App extends Component {
           jobTasks={this.state.savedFormData.jobTasks}
           jobStartDate={this.state.savedFormData.jobStartDate}
           jobEndDate={this.state.savedFormData.jobEndDate}
-          extra={this.state.savedFormData}
         />
       </div>
     );

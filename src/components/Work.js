@@ -60,7 +60,6 @@ export default class Work extends Component {
             id="jobTasksInput"
             placeholder="Description"
           />
-          <button type="submit">Save</button>
         </form>
       </div>
     );

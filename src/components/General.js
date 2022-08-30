@@ -61,7 +61,6 @@ export default class General extends Component {
             id="descriptionInput"
             placeholder="Description"
           />
-          <button type="submit">Save</button>
         </form>
       </div>
     );

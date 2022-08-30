@@ -148,3 +148,13 @@ textarea {
 .preview--education--dates {
     font-weight: 600;
 }
+
+button {
+    background-color: var(--light-green);
+    color: black;
+    padding: 8px 16px;
+    margin-right: .5rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}

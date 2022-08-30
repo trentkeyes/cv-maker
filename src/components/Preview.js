@@ -19,7 +19,6 @@ export default class Preview extends Component {
       schoolStartDate,
       schoolEndDate,
     } = this.props;
-    console.log(this.props.extra);
     return (
       <div className="preview">
         <header className="preview--header">
