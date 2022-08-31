@@ -53,7 +53,8 @@ input {
     text-indent: 5px;
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
     color: rgba(0, 0, 0, 0.8);
 }
 
@@ -62,6 +63,7 @@ textarea {
     font-family: inherit;
     resize: none;
     padding: 5px;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .preview {

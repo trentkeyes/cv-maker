@@ -1,171 +1,156 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import General from './components/General';
 import Education from './components/Education';
 import Work from './components/Work';
 import Preview from './components/Preview';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      formData: {
-        name: 'Bobby Hill',
-        title: 'Prop Comic',
-        email: 'BestPropComic@gmail.com',
-        phone: '806-994-9866',
-        location: 'Arlen, TX',
-        description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea ve dolores ratione doloribus alias et corporis optio, nulla deleniti fugit quis molestiae voluptatum magnam veniam quaerat, amet ips',
-        school: 'Arlen Community College',
-        degree: 'Clowning',
-        schoolStartDate: '2015',
-        schoolEndDate: '2017',
-        company: 'Self-employed',
-        position: 'Prop Comic',
-        jobTasks:
-          'Lorem ipsum dolor sit amet consectetur, quo impedit quas molestias modi est, minus eligendi est beatae quibusdam officia corporis.',
-        jobStartDate: '2015',
-        jobEndDate: 'Present',
-      },
-      savedFormData: {
-        name: 'Bobby Hill',
-        title: 'Prop Comic',
-        email: 'BestPropComic@gmail.com',
-        phone: '806-994-9866',
-        location: 'Arlen, TX',
-        description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea ve dolores ratione doloribus alias et corporis optio, nulla deleniti fugit quis molestiae voluptatum magnam veniam quaerat, amet ips',
-        school: 'Arlen Community College',
-        degree: 'Clowning',
-        schoolStartDate: '2015',
-        schoolEndDate: '2017',
-        company: 'Self-employed',
-        position: 'Prop Comic',
-        jobTasks:
-          'Lorem ipsum dolor sit amet consectetur, quo impedit quas molestias modi est, minus eligendi est beatae quibusdam officia corporis.',
-        jobStartDate: '2015',
-        jobEndDate: 'Present',
-      },
-    };
-  }
+export default function App() {
+  const [formData, setFormData] = useState({
+    name: 'Bobby Hill',
+    title: 'Prop Comic',
+    email: 'BestPropComic@gmail.com',
+    phone: '806-994-9866',
+    location: 'Arlen, TX',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea ve dolores ratione doloribus alias et corporis optio, nulla deleniti fugit quis molestiae voluptatum magnam veniam quaerat, amet ips',
+    school: 'Arlen Community College',
+    degree: 'Clowning',
+    schoolStartDate: '2015',
+    schoolEndDate: '2017',
+    company: 'Self-employed',
+    position: 'Prop Comic',
+    jobTasks:
+      'Lorem ipsum dolor sit amet consectetur, quo impedit quas molestias modi est, minus eligendi est beatae quibusdam officia corporis.',
+    jobStartDate: '2015',
+    jobEndDate: 'Present',
+  });
+  const [savedFormData, setSavedFormData] = useState({
+    name: 'Bobby Hill',
+    title: 'Prop Comic',
+    email: 'BestPropComic@gmail.com',
+    phone: '806-994-9866',
+    location: 'Arlen, TX',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea ve dolores ratione doloribus alias et corporis optio, nulla deleniti fugit quis molestiae voluptatum magnam veniam quaerat, amet ips',
+    school: 'Arlen Community College',
+    degree: 'Clowning',
+    schoolStartDate: '2015',
+    schoolEndDate: '2017',
+    company: 'Self-employed',
+    position: 'Prop Comic',
+    jobTasks:
+      'Lorem ipsum dolor sit amet consectetur, quo impedit quas molestias modi est, minus eligendi est beatae quibusdam officia corporis.',
+    jobStartDate: '2015',
+    jobEndDate: 'Present',
+  });
 
-  handleChange = (e) => {
-    this.setState((prevData) => ({
-      formData: {
-        ...prevData.formData,
+  const handleChange = (e) => {
+    setFormData((prevData) => {
+      return {
+        ...prevData,
         [e.target.name]: e.target.value,
-      },
-    }));
+      };
+    });
   };
 
-  onSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    this.setState((prevData) => ({
-      formData: {
-        name: '',
-        title: '',
-        email: '',
-        phone: '',
-        location: '',
-        description: '',
-        school: '',
-        degree: '',
-        schoolStartDate: '',
-        schoolEndDate: '',
-        company: '',
-        position: '',
-        jobTasks: '',
-        jobStartDate: '',
-        jobEndDate: '',
-      },
-      savedFormData: {
-        ...prevData.formData,
-      },
-    }));
+    setSavedFormData({
+      ...formData,
+    });
+    setFormData({
+      name: '',
+      title: '',
+      email: '',
+      phone: '',
+      location: '',
+      description: '',
+      school: '',
+      degree: '',
+      schoolStartDate: '',
+      schoolEndDate: '',
+      company: '',
+      position: '',
+      jobTasks: '',
+      jobStartDate: '',
+      jobEndDate: '',
+    });
   };
 
-  edit = () => {
-    this.setState((prevData) => ({
-      formData: {
-        ...prevData.savedFormData,
-      },
-    }));
+  const edit = () => {
+    setFormData({
+      ...savedFormData,
+    });
   };
 
-  render() {
-    const {
-      name,
-      title,
-      email,
-      phone,
-      location,
-      description,
-      school,
-      degree,
-      schoolStartDate,
-      schoolEndDate,
-      company,
-      position,
-      jobTasks,
-      jobStartDate,
-      jobEndDate,
-    } = this.state.formData;
+  const {
+    name,
+    title,
+    email,
+    phone,
+    location,
+    description,
+    school,
+    degree,
+    schoolStartDate,
+    schoolEndDate,
+    company,
+    position,
+    jobTasks,
+    jobStartDate,
+    jobEndDate,
+  } = formData;
 
-    return (
-      <div className="main">
-        <div className="formContainer">
-          <General
-            name={name}
-            title={title}
-            location={location}
-            email={email}
-            phone={phone}
-            description={description}
-            handleChange={this.handleChange}
-            onSubmit={this.onSubmit}
-          />
-          <Work
-            company={company}
-            position={position}
-            jobTasks={jobTasks}
-            jobStartDate={jobStartDate}
-            jobEndDate={jobEndDate}
-            handleChange={this.handleChange}
-            onSubmit={this.onSubmit}
-          />
-
-          <Education
-            school={school}
-            degree={degree}
-            schoolStartDate={schoolStartDate}
-            schoolEndDate={schoolEndDate}
-            handleChange={this.handleChange}
-            onSubmit={this.onSubmit}
-            edit={this.edit}
-          />
-        </div>
-        <Preview
-          name={this.state.savedFormData.name}
-          title={this.state.savedFormData.title}
-          email={this.state.savedFormData.email}
-          phone={this.state.savedFormData.phone}
-          location={this.state.savedFormData.location}
-          description={this.state.savedFormData.description}
-          school={this.state.savedFormData.school}
-          degree={this.state.savedFormData.degree}
-          schoolStartDate={this.state.savedFormData.schoolStartDate}
-          schoolEndDate={this.state.savedFormData.schoolEndDate}
-          company={this.state.savedFormData.company}
-          position={this.state.savedFormData.position}
-          jobTasks={this.state.savedFormData.jobTasks}
-          jobStartDate={this.state.savedFormData.jobStartDate}
-          jobEndDate={this.state.savedFormData.jobEndDate}
+  return (
+    <div className="main">
+      <div className="formContainer">
+        <General
+          name={name}
+          title={title}
+          location={location}
+          email={email}
+          phone={phone}
+          description={description}
+          handleChange={handleChange}
+        />
+        <Work
+          company={company}
+          position={position}
+          jobTasks={jobTasks}
+          jobStartDate={jobStartDate}
+          jobEndDate={jobEndDate}
+          handleChange={handleChange}
+        />
+        <Education
+          school={school}
+          degree={degree}
+          schoolStartDate={schoolStartDate}
+          schoolEndDate={schoolEndDate}
+          handleChange={handleChange}
+          onSubmit={onSubmit}
+          edit={edit}
         />
       </div>
-    );
-  }
+      <Preview
+        name={savedFormData.name}
+        title={savedFormData.title}
+        email={savedFormData.email}
+        phone={savedFormData.phone}
+        location={savedFormData.location}
+        description={savedFormData.description}
+        school={savedFormData.school}
+        degree={savedFormData.degree}
+        schoolStartDate={savedFormData.schoolStartDate}
+        schoolEndDate={savedFormData.schoolEndDate}
+        company={savedFormData.company}
+        position={savedFormData.position}
+        jobTasks={savedFormData.jobTasks}
+        jobStartDate={savedFormData.jobStartDate}
+        jobEndDate={savedFormData.jobEndDate}
+      />
+    </div>
+  );
 }
-export default App;
 
 // const addWorkForms = () => {
 //   const num = this.state.workFormsShown;
